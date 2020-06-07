@@ -20,6 +20,6 @@ public class AppTest {
     public void shouldBeAbleToExecuteMainWithoutException() {
         String[] arguments = {};
         App.main(arguments);
-        assertTrue(false);
+        assertTrue(true);
     }
 }
