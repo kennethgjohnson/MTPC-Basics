@@ -1,2 +1,22 @@
 # MTPC-Basics
 Refreshing basic multithreading and parralle computing in Java.
+
+So far includes:
+* SequentialProcessingApp
+  * non threaded implementation
+  
+* ConcurrentProcessingApp
+  * Demonstrates how to create runable's with threads running them.
+  * Dmonstrates how to extend threads and create run implementations for them.
+  * Demonstrates how join works where one thread waits on the completion of another.
+  
+* ConcurrentProcessingWithVolitileApp
+  * Under normal execution the processor may reference the value of a variable direct from it's cache, this is a problem when another thread references the same variable on another processor, to resolve this mark the variable as volitile, this tells the program to go fetch it from the main ram memory, however this is expensive and should be used sparingly.
+  * Demonstrates the use of the volitile keyword.
+  
+* ConcurrentProcessingWithSyncronizedMethodsApp
+  * When two threads are interacting with a single variable value with non atomic operations it can create situations where values / actions are discarded and itterations of increments skipped working on the value, to mitigate this thread syncronization is applied in that it will syncronized on a lock.
+  * Demonstrates the use of syncronize keyword on methods: this performs a lock on the class/instance object and would block other syncronize method calls in the same class even if it does not manipulate/access the same values.
+
+* ConcurrentProcessingWithSyncronizedBlocksApp
+  * Demonstrates the use of syncronize blocks on locks used explicitly for specific variables allowing multiple methods in the same class to be called concurrently even though they both require syncronization for their respective variables being manipulated.
