@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 /**
  * Unit test for simple App.
  */
-public class ConcurrencyAppTest {
+public class SequentialProcessingAppTest {
 
     @Test
     public void shouldBeAbleToExecuteMainWithoutException() {
         String[] arguments = {};
-        ConcurrencyApp.main(arguments);
+        SequentialProcessingApp.main(arguments);
         assertTrue(true);
     }
 }

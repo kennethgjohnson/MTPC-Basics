@@ -1,6 +1,6 @@
 package dev.kennethgjohnson.mtpc.basics.concurrency;
 
-public class ConcurrencyApp {
+public class SequentialProcessingApp {
     public static void main(final String[] args) {
         Runner runner1 = new Runner("1");
         Runner runner2 = new Runner("2");
