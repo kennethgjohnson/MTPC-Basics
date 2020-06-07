@@ -1,23 +1,27 @@
 package dev.kennethgjohnson.mtpc.basics.concurrency;
 
-/// Both incrementCounter and incrementCounter2 is essentially locking 
-/// on the same class lock, so incrementCounter usage by thread 1 will
-/// block incrementCounter2 usage by thread 2, which is not the most 
-/// efficient.
-public class ConcurrentProcessingWithSyncronizedMethodsApp {
+/// Now that counterLock and counterLock2 works independantly both incrementCounter
+/// and incrementCounter2 can run concurrently.
+public class ConcurrentProcessingWithSyncronizedBlocksApp {
     private static int counter = 0;
     private static int counter2 = 0;
+    private static Object counterLock = new Object();
+    private static Object counter2Lock = new Object();
 
     // This syncronized is performing a lock on the
-    // ConcurrentProcessingWithSyncronizedMethodsApp class
-    public static synchronized void incrementCounter() {
-        counter++;
+    // counterLock
+    public static void incrementCounter() {
+        synchronized (counterLock) {
+            counter++;
+        }
     }
 
     // This syncronized is performing a lock on the
-    // ConcurrentProcessingWithSyncronizedMethodsApp class
-    public static synchronized void incrementCounter2() {
-        counter2++;
+    // counter2Lock
+    public static void incrementCounter2() {
+        synchronized (counter2Lock) {
+            counter2++;
+        }
     }
 
     public static void main(final String[] args) {
