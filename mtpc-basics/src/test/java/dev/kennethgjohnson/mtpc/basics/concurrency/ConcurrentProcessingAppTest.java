@@ -11,7 +11,7 @@ public class ConcurrentProcessingAppTest {
     @Test
     public void shouldBeAbleToExecuteMainWithoutException() {
         String[] arguments = {};
-        SequentialProcessingApp.main(arguments);
+        ConcurrentProcessingApp.main(arguments);
         assertTrue(true);
     }
 }
