@@ -24,3 +24,21 @@ So far includes:
 * ConcurrentProcessingWithSyncronizedBlocksWaitAndNotifyApp
   * Demonstrates the use of notify and wait, with detailed logs showing how locks are made and released, and how wait sleeps a thread and notfiy signals a syncronize block to send a wake to waiting threads.
   * Execution order tutorial basically for syncronized/wait/notify
+
+* ProducerConsumerApp
+  * Demonstrates the use of notify and wait, and while loop with a stop signal.
+  * Shows how wait will also engage notify signals instead of going to the end of a syncronize block.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
