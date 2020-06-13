@@ -20,3 +20,7 @@ So far includes:
 
 * ConcurrentProcessingWithSyncronizedBlocksApp
   * Demonstrates the use of syncronize blocks on locks used explicitly for specific variables allowing multiple methods in the same class to be called concurrently even though they both require syncronization for their respective variables being manipulated.
+
+* ConcurrentProcessingWithSyncronizedBlocksWaitAndNotifyApp
+  * Demonstrates the use of notify and wait, with detailed logs showing how locks are made and released, and how wait sleeps a thread and notfiy signals a syncronize block to send a wake to waiting threads.
+  * Execution order tutorial basically for syncronized/wait/notify
