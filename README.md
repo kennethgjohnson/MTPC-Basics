@@ -1,5 +1,5 @@
 # MTPC-Basics
-Refreshing basic multithreading and parralle computing in Java.
+Refreshing basic multithreading and parrallel computing in Java.
 
 So far includes:
 * SequentialProcessingApp
