@@ -2,7 +2,7 @@ package dev.kennethgjohnson.mtpc.basics;
 
 /**
  * Hello world!
- *
+ * 
  */
 public class App {
 
