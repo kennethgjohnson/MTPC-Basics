@@ -38,6 +38,7 @@ Refreshing basic multithreading and parrallel computing in Java.
   * Reentrant locks also have a "fairness" parameter argument that if specified as true will make the lock pass to the longest waiting thread rather than a random one when released.
 
 * ReentrantProduceConsumerWithWaitSignalConditionsApp
+  * Based on ConcurrentProcessingWithSyncronizedBlocksWaitAndNotifyApp.
   * Demonstrates the use of signal/signalall/await of the Reentrantlock's Condition signaling, with logs showing how locks are made and released with condition signaling, and how await sleeps a thread and signal signals a threads that are awating on a condition to wake.
   * Execution order tutorial basically for lock/signal/signalall/await.
   
