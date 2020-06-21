@@ -67,8 +67,8 @@ class ProducerConsumer {
           list.remove(0);
           System.out.println(String.format(" size is %d...", list.size()));
         } else {
-          System.out
-              .println("C: The list is empty. Setting lock to notify others waiting, and going to sleep waiting...");
+          System.out.println(
+              "C: The list is empty. Setting lock to signal others a waiting a signal, and going to sleep awaiting...");
           queueEmptyCondition.signalAll();
           queueFullCondition.await();
         }
