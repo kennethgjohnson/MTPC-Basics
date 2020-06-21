@@ -1,15 +1,14 @@
-package dev.kennethgjohnson.mtpc.basics;
+package dev.kennethgjohnson.mtpc.basics.concurrency;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
-public class AppTest {
+public class ReentrantLocksAppTest {
 
   @Test
   public void shouldBeAbleToExecuteMainWithoutException() {
     String[] arguments = {};
-    App.main(arguments);
+    ReentrantLocksApp.main(arguments);
     assertTrue(true);
   }
 }
