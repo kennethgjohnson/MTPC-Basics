@@ -2,7 +2,7 @@
 Refreshing basic multithreading and parrallel computing in Java.
 
 
-## NORMAL LOCKS:
+## Synchronize / Normal LOCKS:
 * SequentialProcessingApp
   * non threaded implementation
   
