@@ -33,6 +33,7 @@ So far includes:
   * Demonstrates the use of reentrant locks.
   * The main difference of reentrant lock (at least what I can see) is they don't need interupted exception blocks.
   * Demonstrates how to use lambda runnables as arguments.
+  * Reentrant locks also have a "fairness" parameter argument that if specified as true will make the lock pass to the longest waiting thread rather than a random one when released.
   
   
   
