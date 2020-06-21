@@ -29,7 +29,10 @@ So far includes:
   * Demonstrates the use of notify and wait, and while loop with a stop signal.
   * Shows how wait will also engage notify signals instead of going to the end of a syncronize block.
   
-  
+* ReentrantLocksApp
+  * Demonstrates the use of reentrant locks.
+  * The main difference of reentrant lock (at least what I can see) is they don't need interupted exception blocks.
+  * Demonstrates how to use lambda runnables as arguments.
   
   
   
