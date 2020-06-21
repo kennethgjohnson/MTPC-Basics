@@ -1,9 +1,16 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency.normallocks;
+package dev.kennethgjohnson.mtpc.basics.concurrency.reentrantlocks;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 class ProducerConsumer {
+  private Lock lock = new ReentrantLock();
+  private Condition queueFullCondition = lock.newCondition();
+  private Condition queueEmptyCondition = lock.newCondition();
+
   private List<Integer> list = new ArrayList<>();
   private Integer limit;
   private boolean stop;
@@ -20,7 +27,9 @@ class ProducerConsumer {
 
   public void produce() throws InterruptedException {
     System.out.println("P: started.");
-    synchronized (list) {
+
+    lock.lock();
+    try {
       this.stop = false;
 
       while (!stop) {
@@ -31,22 +40,25 @@ class ProducerConsumer {
           nextInt++;
         } else {
           System.out.println("P: Limit reached. Setting lock to notify others waiting, and going to sleep waiting...");
-          list.notify();
-          list.wait();
+
+          queueFullCondition.signalAll();
+          queueEmptyCondition.await();
         }
         Thread.sleep(200);
       }
-
-      // We need to notify during shutdown to get sleeping threads to see the stop
+      // We need to signal during shutdown to get sleeping threads to see the stop
       // signal.
-      this.list.notifyAll();
+      queueFullCondition.signalAll();
+    } finally {
+      lock.unlock();
     }
     System.out.println("P: ended.");
   }
 
   public void consume() throws InterruptedException {
     System.out.println("C: started.");
-    synchronized (this.list) {
+    lock.lock();
+    try {
       this.stop = false;
 
       while (!this.stop) {
@@ -57,15 +69,17 @@ class ProducerConsumer {
         } else {
           System.out
               .println("C: The list is empty. Setting lock to notify others waiting, and going to sleep waiting...");
-          list.notify();
-          list.wait();
+          queueEmptyCondition.signalAll();
+          queueFullCondition.await();
         }
         Thread.sleep(200);
       }
 
-      // We need to notify during shutdown to get sleeping threads to see the stop
+      // We need to signal during shutdown to get sleeping threads to see the stop
       // signal.
-      this.list.notifyAll();
+      queueEmptyCondition.signalAll();
+    } finally {
+      lock.unlock();
     }
     System.out.println("C: ended.");
   }
@@ -77,33 +91,25 @@ class ProducerConsumer {
   public List<Integer> getList() {
     return this.list;
   }
-
 }
 
-public class ProducerConsumerApp {
-
+public class ReentrantProduceConsumerWithWaitSignalConditionsApp {
   public static void main(String[] args) {
     ProducerConsumer pc = new ProducerConsumer(5);
 
-    Thread t1 = new Thread(new Runnable() {
-      @Override
-      public void run() {
-        try {
-          pc.produce();
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
+    System.out.println("S:Scenario Started...");
+    Thread t1 = new Thread(() -> {
+      try {
+        pc.produce();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
       }
     });
-
-    Thread t2 = new Thread(new Runnable() {
-      @Override
-      public void run() {
-        try {
-          pc.consume();
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
+    Thread t2 = new Thread(() -> {
+      try {
+        pc.consume();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
       }
     });
 
