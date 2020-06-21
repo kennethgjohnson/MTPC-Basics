@@ -1,4 +1,4 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.normallocks;
 
 /// Now that counterLock and counterLock2 works independantly both incrementCounter
 /// and incrementCounter2 can run concurrently.

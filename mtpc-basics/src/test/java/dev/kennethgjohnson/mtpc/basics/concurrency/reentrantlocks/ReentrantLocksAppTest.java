@@ -1,14 +1,14 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.reentrantlocks;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-public class ConcurrentProcessingWithVolitileAppTest {
+public class ReentrantLocksAppTest {
 
   @Test
   public void shouldBeAbleToExecuteMainWithoutException() {
     String[] arguments = {};
-    ConcurrentProcessingWithVolitileApp.main(arguments);
+    ReentrantLocksApp.main(arguments);
     assertTrue(true);
   }
 }

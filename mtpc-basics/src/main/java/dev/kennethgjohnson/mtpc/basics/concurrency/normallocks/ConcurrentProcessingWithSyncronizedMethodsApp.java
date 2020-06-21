@@ -1,4 +1,4 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.normallocks;
 
 /// Both incrementCounter and incrementCounter2 is essentially locking 
 /// on the same class lock, so incrementCounter usage by thread 1 will
