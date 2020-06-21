@@ -36,8 +36,10 @@ Refreshing basic multithreading and parrallel computing in Java.
   * The main difference of reentrant lock (at least what I can see) is they don't need interupted exception blocks.
   * Demonstrates how to use lambda runnables as arguments.
   * Reentrant locks also have a "fairness" parameter argument that if specified as true will make the lock pass to the longest waiting thread rather than a random one when released.
-  
-  
+
+* ReentrantProduceConsumerWithWaitSignalConditionsApp
+  * Demonstrates the use of signal/signalall/await of the Reentrantlock's Condition signaling, with logs showing how locks are made and released with condition signaling, and how await sleeps a thread and signal signals a threads that are awating on a condition to wake.
+  * Execution order tutorial basically for lock/signal/signalall/await.
   
   
   
