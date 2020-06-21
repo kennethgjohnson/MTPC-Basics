@@ -1,4 +1,4 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.normallocks;
 
 public class Worker implements Runnable {
   private String workername = "";

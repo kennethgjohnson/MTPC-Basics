@@ -1,4 +1,4 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.normallocks;
 
 class Processor {
   public void produce() throws InterruptedException {

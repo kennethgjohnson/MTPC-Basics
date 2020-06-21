@@ -1,4 +1,4 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.normallocks;
 
 class Runner implements Runnable {
   private String instanceName;

@@ -1,4 +1,4 @@
-package dev.kennethgjohnson.mtpc.basics.concurrency;
+package dev.kennethgjohnson.mtpc.basics.concurrency.reentrantlocks;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
