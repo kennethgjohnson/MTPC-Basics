@@ -1,7 +1,9 @@
 # MTPC-Basics
 Refreshing basic multithreading and parrallel computing in Java.
 
-So far includes:
+So far includes -
+
+NORMAL LOCKS:
 * SequentialProcessingApp
   * non threaded implementation
   
@@ -28,7 +30,8 @@ So far includes:
 * ProducerConsumerApp
   * Demonstrates the use of notify and wait, and while loop with a stop signal.
   * Shows how wait will also engage notify signals instead of going to the end of a syncronize block.
-  
+
+Reentrant LOCKS:
 * ReentrantLocksApp
   * Demonstrates the use of reentrant locks.
   * The main difference of reentrant lock (at least what I can see) is they don't need interupted exception blocks.
