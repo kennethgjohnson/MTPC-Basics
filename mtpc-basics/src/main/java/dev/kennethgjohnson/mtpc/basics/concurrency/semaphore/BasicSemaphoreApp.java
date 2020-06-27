@@ -54,7 +54,7 @@ public class BasicSemaphoreApp {
 
     // Seting up 20 threads.
     for (Integer i = 0; i < 20; ++i) {
-      final int blockNumber = i;
+      final int blockNumber = i + 1;
       // Using lambdas to create 20 runnables for the 20 threads.
       threads.add(new Thread(() -> {
         try {
