@@ -46,4 +46,4 @@ Refreshing basic multithreading and parrallel computing in Java.
 * BasicSemaphoreApp
   * Demonstrates how to use Semaphores to manage basic resources (similar to locks but not locks).
   * Has some lazy thread runnable creation and launching, however this is inferior to using a executor services, which will be demonstrated in some of the latter apps.
-  
+    
