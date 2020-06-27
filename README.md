@@ -61,3 +61,12 @@ Refreshing basic multithreading and parrallel computing in Java.
   * Based on CachedThreadPoolExecutorSemaphoreApp
   * Limits the pool of available threads to the executor to 1.
   * Effectively serializes the workload.
+
+* CallableFutureBasicApp
+ * Demonstrates returning values from threaded calls.
+ * Demonstrates use of Callable, the ExecutorService's submit command to submit work, and how to get a return value from the callable via get method, and isDone method.
+ * The get method is a blocking method, so checking if the result is available via the isDone method is advisable unless the current thread can wait.
+
+* CallableFutureWithLambdaApp
+  * Based on CallableFutureBasicApp
+  * Uses lamdas to construct Callable's to use.
