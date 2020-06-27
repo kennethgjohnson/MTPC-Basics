@@ -42,8 +42,22 @@ Refreshing basic multithreading and parrallel computing in Java.
   * Demonstrates the use of signal/signalall/await of the Reentrantlock's Condition signaling, with logs showing how locks are made and released with condition signaling, and how await sleeps a thread and signal signals a threads that are awating on a condition to wake.
   * Execution order tutorial basically for lock/signal/signalall/await.
 
-## Semaphore / Executor thread pools:
+## Semaphore / Executor thread pools / Callable / Futures:
 * BasicSemaphoreApp
   * Demonstrates how to use Semaphores to manage basic resources (similar to locks but not locks).
   * Has some lazy thread runnable creation and launching, however this is inferior to using a executor services, which will be demonstrated in some of the latter apps.
     
+* CachedThreadPoolExecutorSemaphoreApp
+  * Based on BasicSemaphoreApp
+  * Demonstrates how the CachedThreadPool executor works.
+  * Notice there is no breaks applied on scaling the available threads to do work.
+  * Demonstrates how to wait for an executor to complete its work shutting down.
+
+* FixedThreadPoolExecutorSemaphoreApp
+  * Based on CachedThreadPoolExecutorSemaphoreApp
+  * Limits the pool of available threads to the executor to 3.
+
+* SingleThreadExecutorSemaphoreApp
+  * Based on CachedThreadPoolExecutorSemaphoreApp
+  * Limits the pool of available threads to the executor to 1.
+  * Effectively serializes the workload.
