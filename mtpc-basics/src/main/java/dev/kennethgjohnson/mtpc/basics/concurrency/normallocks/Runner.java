@@ -17,7 +17,7 @@ class Runner implements Runnable {
 
   @Override
   public void run() {
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 25; i++) {
       System.out.println(String.format("Runner%s is running: %d", this.getInstanceName(), i));
       try {
         Thread.sleep(100);
