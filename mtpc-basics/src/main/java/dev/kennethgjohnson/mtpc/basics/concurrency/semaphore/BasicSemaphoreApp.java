@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore;
  * aquire provides effective blocking to ensure that the Semphore "active
  * engagements" are not exceeded.
  * 
- * Notice we are creating 20 threads even though only 4 can execute at any
+ * Notice we are creating 10 threads even though only 4 can execute at any
  * time... this is inefficient, we will solve this in future app using thread
  * executor pools, which will scale threads as needed or limit them as needed.
  */
@@ -52,8 +52,8 @@ public class BasicSemaphoreApp {
     System.out.println("BasicSemaphoreApp: Running");
     final List<Thread> threads = new ArrayList<>();
 
-    // Seting up 20 threads.
-    for (Integer i = 0; i < 20; ++i) {
+    // Seting up 10 threads.
+    for (Integer i = 0; i < 10; ++i) {
       final int blockNumber = i + 1;
       // Using lambdas to create 20 runnables for the 20 threads.
       threads.add(new Thread(() -> {

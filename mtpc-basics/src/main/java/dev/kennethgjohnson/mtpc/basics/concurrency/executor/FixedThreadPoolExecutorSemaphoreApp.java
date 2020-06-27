@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
  * Duplicate of CachedThreadPoolExecutorSemaphoreApp but using a
  * FixedThreadPoolExecutor insted of a CachedThreadPoolExecutor.
  * 
- * Notice that it only creates three threads, but queues 20 runnables worth of
+ * Notice that it only creates three threads, but queues 10 runnables worth of
  * work.
  * 
  * Keeps the max threads to 3.
@@ -17,12 +17,12 @@ public class FixedThreadPoolExecutorSemaphoreApp {
     System.out.println("FixedThreadPoolExecutorSemaphoreApp: Running");
     ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-    // Seting up 20 runnables of work.
-    for (Integer i = 0; i < 20; ++i) {
+    // Seting up 10 runnables of work.
+    for (Integer i = 0; i < 10; ++i) {
       final int blockNumber = i + 1;
       executorService.execute(() -> {
         try {
-          Downloader.INSTANCE.Download(blockNumber);
+          Downloader.FixedThreadPoolExecutorSemaphoreApp_INSTANCE.Download(blockNumber);
         } catch (final InterruptedException e) {
           System.err.println(String.format("Runnable for block %d : Download chunk failed/interrupted.", blockNumber));
         }

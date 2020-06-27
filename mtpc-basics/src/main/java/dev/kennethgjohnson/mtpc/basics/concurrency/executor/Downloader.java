@@ -5,8 +5,11 @@ import java.util.concurrent.Semaphore;
 /**
  * Based on BasicSemaphoreApp downloader keeps concurrency to 4.
  */
-public enum Downloader {
-  INSTANCE;
+enum Downloader {
+  // Had to make 3 singleton instances since they get shared when running
+  // parralell unit tests lol.
+  CachedThreadPoolExecutorSemaphoreApp_INSTANCE, FixedThreadPoolExecutorSemaphoreApp_INSTANCE,
+  SingleThreadExecutorSemaphoreApp_INSTANCE;
 
   private final Semaphore allowedConcurrentDownloadAttempts = new Semaphore(4, true);
 
@@ -33,5 +36,4 @@ public enum Downloader {
     System.out.println(String.format("Downloader for block %d: waking up.", blockNumber));
     System.out.println(String.format("Downloader for block %d: download completed.", blockNumber));
   }
-
 }

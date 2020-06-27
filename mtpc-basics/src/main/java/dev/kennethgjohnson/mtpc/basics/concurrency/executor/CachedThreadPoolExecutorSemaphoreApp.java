@@ -4,8 +4,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Duplicate of BasicSemaphoreApp but using execute instead of 20 lazy threads.
- * Executor immediately scales up to 20 threads.
+ * Duplicate of BasicSemaphoreApp but using execute instead of 10 lazy threads.
+ * Executor immediately scales up to 10 threads.
  * 
  * Adds threads as needed.
  * 
@@ -17,12 +17,12 @@ public class CachedThreadPoolExecutorSemaphoreApp {
     System.out.println("CachedThreadPoolExecutorSemaphoreApp: Running");
     ExecutorService executorService = Executors.newCachedThreadPool();
 
-    // Seting up 20 runnables of work.
-    for (Integer i = 0; i < 20; ++i) {
+    // Seting up 10 runnables of work.
+    for (Integer i = 0; i < 10; ++i) {
       final int blockNumber = i + 1;
       executorService.execute(() -> {
         try {
-          Downloader.INSTANCE.Download(blockNumber);
+          Downloader.CachedThreadPoolExecutorSemaphoreApp_INSTANCE.Download(blockNumber);
         } catch (final InterruptedException e) {
           System.err.println(String.format("Runnable for block %d : Download chunk failed/interrupted.", blockNumber));
         }

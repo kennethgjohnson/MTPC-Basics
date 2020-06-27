@@ -21,7 +21,7 @@ public class SingleThreadExecutorSemaphoreApp {
       final int blockNumber = i + 1;
       executorService.execute(() -> {
         try {
-          Downloader.INSTANCE.Download(blockNumber);
+          Downloader.SingleThreadExecutorSemaphoreApp_INSTANCE.Download(blockNumber);
         } catch (final InterruptedException e) {
           System.err.println(String.format("Runnable for block %d : Download chunk failed/interrupted.", blockNumber));
         }
