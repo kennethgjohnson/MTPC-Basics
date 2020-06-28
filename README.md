@@ -70,3 +70,10 @@ Refreshing basic multithreading and parrallel computing in Java.
 * CallableFutureWithLambdaApp
   * Based on CallableFutureBasicApp
   * Uses lamdas to construct Callable's to use.
+
+* CountdownLatchApp
+  * Demonstrates using a countdown latch and workers so that work can be devided up and worked on.
+  * The latch's await method is a blocking call used by the thread waiting on all the worker threads' results.
+  * Once the latch's count is created it can not be adjusted upward.
+  * Latch count goes down with countDown method.
+  
