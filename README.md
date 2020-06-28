@@ -63,9 +63,9 @@ Refreshing basic multithreading and parrallel computing in Java.
   * Effectively serializes the workload.
 
 * CallableFutureBasicApp
- * Demonstrates returning values from threaded calls.
- * Demonstrates use of Callable, the ExecutorService's submit command to submit work, and how to get a return value from the callable via get method, and isDone method.
- * The get method is a blocking method, so checking if the result is available via the isDone method is advisable unless the current thread can wait.
+  * Demonstrates returning values from threaded calls.
+  * Demonstrates use of Callable, the ExecutorService's submit command to submit work, and how to get a return value from the callable via get method, and isDone method.
+  * The get method is a blocking method, so checking if the result is available via the isDone method is advisable unless the current thread can wait.
 
 * CallableFutureWithLambdaApp
   * Based on CallableFutureBasicApp
