@@ -71,8 +71,10 @@ Refreshing basic multithreading and parrallel computing in Java.
   * Based on CallableFutureBasicApp
   * Uses lamdas to construct Callable's to use.
 
+## Latches / Cyclic barriers:
 * CountdownLatchApp
   * Demonstrates using a countdown latch and workers so that work can be devided up and worked on.
+  * Latch seems to be like an inverted semaphore where instead of upward counting units need to be available for work to proceed, instead in this case the awaits call waits on the Latch reaching 0.
   * The latch's await method is a blocking call used by the thread waiting on all the worker threads' results.
   * Once the latch's count is created it can not be adjusted upward.
   * Latch count goes down with countDown method.
