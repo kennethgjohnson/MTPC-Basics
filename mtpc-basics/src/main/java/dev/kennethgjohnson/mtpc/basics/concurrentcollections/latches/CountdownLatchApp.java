@@ -20,12 +20,12 @@ public class CountdownLatchApp {
     /* ExecutorService executor = Executors.newSingleThreadExecutor(); */
 
     CountDownLatch countdownLatch = new CountDownLatch(workDataChunks.size());
-    List<LatchWorker> workers = new ArrayList<>();
+    List<CountdownLatchWorker> workers = new ArrayList<>();
     for (int i = 0; i < workDataChunks.size(); i++) {
       int workerId = i + 1;
       System.out.println(
           String.format("CountdownLatchApp: enqueing worker %d with chunk '%s'...", workerId, workDataChunks.get(i)));
-      LatchWorker worker = new LatchWorker(i + 1, countdownLatch, workDataChunks.get(i));
+      CountdownLatchWorker worker = new CountdownLatchWorker(i + 1, countdownLatch, workDataChunks.get(i));
       workers.add(worker);
       executor.execute(worker);
     }
@@ -40,7 +40,7 @@ public class CountdownLatchApp {
     System.out.println("CountdownLatchApp: latch triggered.");
 
     System.out.println("CountdownLatchApp: writing results...");
-    for (LatchWorker worker : workers) {
+    for (CountdownLatchWorker worker : workers) {
       System.out
           .println(String.format("CountdownLatchApp: '%d' result '%s'", worker.getWorkerId(), worker.getResultData()));
     }
