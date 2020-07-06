@@ -4,12 +4,12 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
 //Worker to use with count down latch examples
-public class LatchWorker implements Runnable {
+public class CountdownLatchWorker implements Runnable {
   private CountDownLatch countdownLatch;
   private Integer workerId;
   private String workData;
 
-  public LatchWorker(Integer workerId, CountDownLatch countdownLatch, String workData) {
+  public CountdownLatchWorker(Integer workerId, CountDownLatch countdownLatch, String workData) {
     this.workerId = workerId;
     this.countdownLatch = countdownLatch;
     this.workData = workData;
